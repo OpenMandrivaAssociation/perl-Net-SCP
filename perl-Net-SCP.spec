@@ -12,6 +12,7 @@ Group:		Development/Perl
 Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{module}-%{version}.tar.bz2
 Url:		http://search.cpan.org/dist/%{module}/
 BuildArch:	noarch
+Buildroot:	%{_tmppath}/%{name}-%{version}
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
