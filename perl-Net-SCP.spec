@@ -1,29 +1,29 @@
-%define module	Net-SCP
-%define name	perl-%{module}
-%define version 0.08
-%define release %mkrel 4
+%define upstream_name	 Net-SCP
+%define upstream_version 0.08
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Summary:	%{module} module for perl
-License:	GPL or Artistic
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:	%{upstream_name} module for perl
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{module}-%{version}.tar.bz2
-Url:		http://search.cpan.org/dist/%{module}/
-BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-%{version}
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildRequires:	perl(Net::SSH)
 BuildRequires:	perl(String::ShellQuote)
+BuildArch:	noarch
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Simple wrappers around ssh and scp commands.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -44,4 +44,3 @@ rm -rf %{buildroot}
 %doc README
 %{perl_vendorlib}/Net
 %{_mandir}/*/*
-
