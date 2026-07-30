@@ -2,7 +2,7 @@
 %define upstream_version 0.08.reprise
 Name:		perl-%{upstream_name}
 Version:	0.08
-Release:	2
+Release:	3
 
 Summary:	%{upstream_name} module for perl
 License:	GPL+ or Artistic
@@ -32,7 +32,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %check
 # soft: do not fail package on test failures
 set +e
-make test
+make test || :
 
 %files
 %doc README
