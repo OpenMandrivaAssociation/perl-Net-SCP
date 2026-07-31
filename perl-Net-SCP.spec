@@ -1,8 +1,8 @@
 %define upstream_name	 Net-SCP
-%define upstream_version 0.08.reprise
+%define upstream_version 0.08.
 Name:		perl-%{upstream_name}
-Version:	0.08
-Release:	13
+Version:	0.08.
+Release:	1
 
 Summary:	%{upstream_name} module for perl
 License:	GPL+ or Artistic
@@ -24,8 +24,7 @@ Simple wrappers around ssh and scp commands.
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
-%make
-
+%make_build
 %install
 %makeinstall_std
 
@@ -35,7 +34,7 @@ set +e
 make test || :
 
 %files
-%doc README
+%doc Changes README
 %{perl_vendorlib}/Net
 %{_mandir}/*/*
 
