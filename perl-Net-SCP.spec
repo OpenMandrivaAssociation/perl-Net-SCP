@@ -1,7 +1,7 @@
 %define upstream_name	 Net-SCP
-%define upstream_version 0.08
+%define upstream_version 0.08.
 Name:		perl-%{upstream_name}
-Version:	0.08
+Version:	0.08.
 Release:	1
 
 Summary:	%{upstream_name} module for perl
